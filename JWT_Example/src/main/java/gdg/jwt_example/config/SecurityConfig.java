@@ -29,7 +29,7 @@ public class SecurityConfig {
                 .formLogin(AbstractHttpConfigurer::disable)
                 .logout(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
-                        .requestMatchers("/user/signup").permitAll()
+                        .requestMatchers("/driver/signup").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(new JWT_Filter(tokenprovider), UsernamePasswordAuthenticationFilter.class)
