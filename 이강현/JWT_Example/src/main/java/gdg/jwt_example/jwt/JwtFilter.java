@@ -14,7 +14,7 @@ import org.springframework.web.filter.GenericFilterBean;
 import java.io.IOException;
 
 @RequiredArgsConstructor
-public class JWT_Filter extends GenericFilterBean {
+public class JwtFilter extends GenericFilterBean {
 
     private final TokenProvider tokenProvider;
 

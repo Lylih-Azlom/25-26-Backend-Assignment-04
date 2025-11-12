@@ -1,6 +1,6 @@
 package gdg.jwt_example.config;
 
-import gdg.jwt_example.jwt.JWT_Filter;
+import gdg.jwt_example.jwt.JwtFilter;
 import gdg.jwt_example.jwt.TokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +17,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private final TokenProvider tokenprovider;
+    private final TokenProvider tokenProvider;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
@@ -32,7 +32,7 @@ public class SecurityConfig {
                         .requestMatchers("/driver/signup").permitAll()
                         .anyRequest().authenticated()
                 )
-                .addFilterBefore(new JWT_Filter(tokenprovider), UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(new JwtFilter(tokenProvider), UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 

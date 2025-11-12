@@ -25,7 +25,7 @@ public class DriverService {
                 .serial(driverSignUpDTO.getSerial())
                 .password(passwordEncoder.encode(driverSignUpDTO.getPassword()))
                 .name(driverSignUpDTO.getName())
-                .role(Role.ROLE_DRIVER)
+                .role(Role.DRIVER)
                 .build());
 
         String accessToken = tokenProvider.createAccessToken(driver);
